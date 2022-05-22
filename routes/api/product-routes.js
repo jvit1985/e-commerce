@@ -26,7 +26,7 @@ router.get('/', (req, res) => {
       }
     ],
   })
-  .then(dbUserData => res.json(dbUserData))
+  .then(dbProductData => res.json(dbProductData))
   .catch(err => {
     console.log(err);
     res.status(500).json(err);
@@ -52,12 +52,12 @@ router.get('/:id', (req, res) => {
       }
     ]
   })
-  .then(dbUserData => {
-    if(!dbUserData) {
+  .then(dbProductData => {
+    if(!dbProductData) {
       res.status(404).json({ message: 'No product found with this id' });
       return;
     }
-    res.json(dbUserData);
+    res.json(dbProductData);
   })
   .catch(err => {
     console.log(err);
@@ -151,12 +151,12 @@ router.delete('/:id', (req, res) => {
       id: req.params.id
     }
   })
-  .then(dbUserData => {
-    if(!dbUserData) {
+  .then(dbProductData => {
+    if(!dbProductData) {
       res.status(404).json({ message: 'No product found with this id' });
       return;
     }
-    res.json(dbUserData);
+    res.json(dbProductData);
   })
   .catch(err => {
     console.log(err);
