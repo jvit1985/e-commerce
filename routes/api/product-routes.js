@@ -22,7 +22,7 @@ router.get('/', (req, res) => {
         model: Tag,
         attributes: ['tag_name']
       }
-    ],
+    ]
   })
   .then(dbProductData => res.json(dbProductData))
   .catch(err => {
@@ -95,7 +95,6 @@ router.post('/', (req, res) => {
 router.put('/:id', (req, res) => {
   // update product data
   Product.update(req.body, {
-    individualHooks: true,
     where: {
       id: req.params.id,
     },
